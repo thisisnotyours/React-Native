@@ -1,0 +1,96 @@
+리액트네이티브 서명키 생성과 릴리즈 APK만들기
+
+1. [서명된 키 발급] - cmd(명렬프롬프트/터미널)에서  [프로젝트폴더]/android/app/폴더로 이동하여 아래 키발급 명령어 실행
+
+     $ keytool -genkey -v -keystore [key-name].keystore -alias [key alias] -keyalg RSA -keysize 2048 -validity 10000
+
+ ----------------------------------------------------------------------------------------------------------------------------------------
+  ex) keytool -genkey -v -keystore MyApp.keystore -alias mrhi -keyalg RSA -keysize 2048 -validity 10000
+            
+	키 저장소 비밀번호 입력:
+	새 비밀번호 다시 입력:
+	이름과 성을 입력하십시오.
+	  [Unknown]:
+	조직 단위 이름을 입력하십시오.
+	  [Unknown]:
+	조직 이름을 입력하십시오.
+	  [Unknown]:
+	구/군/시 이름을 입력하십시오?
+	  [Unknown]:
+	시/도 이름을 입력하십시오.
+	  [Unknown]:
+	이 조직의 두 자리 국가 코드를 입력하십시오.
+	  [Unknown]:
+	CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown이(가) 맞습니까?
+	  [아니오]:  y
+
+	다음에 대해 유효 기간이 90일인 2,048비트 DSA 키 쌍 및 자체 서명된 인증서(SHA256withDSA)를 생성하는 중
+        		: CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+	<mrhi>에 대한 키 비밀번호를 입력하십시오.
+	        (키 저장소 비밀번호와 동일한 경우 Enter 키를 누름):
+	[Test.keystore을(를) 저장하는 중]
+
+	Warning:
+	JKS 키 저장소는 고유 형식을 사용합니다. "keytool -importkeystore -srckeystore Test.keystore -destkeystore Test.keystore -deststoretype pkcs12"를 사용하는 산업 표준 형식인 PKCS12로 이전하는 것이 좋습니다.
+ ----------------------------------------------------------------------------------------------------------------------------------------
+
+2. 서명 키 설정
+
+서명 키(Signing Key)가 생성되면 gradle에 키를 설정해야합니다. android/gradle.properties 파일을 열고 아래에 코드를 추가합니다.
+	
+	MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+	MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+	MYAPP_RELEASE_STORE_PASSWORD=*****
+	MYAPP_RELEASE_KEY_PASSWORD=*****
+
+   # 해당항목들의 값들은 본인 서명키의 내용으로 변경
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+아래에 코드를 android/app/build.gradle 파일에 추가합니다.
+...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+3. 빌드
+RN(react native)가 있는 프로젝트 폴더에서 android 폴더로 이동한 후 아래에 명령어로 빌드합니다.
+
+	# cd android
+ 	./gradlew assembleRelease
+
+빌드된 파일은 아래에 경로에 생성됩니다.
+	
+    android/app/build/outputs/apk/release/app-release.apk
+
+
+
+
+
+
+
+
+
+
+
+
+
