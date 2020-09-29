@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import InputComponent from '../components/InputComponent';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Login extends Component{
     render(){
@@ -20,7 +21,7 @@ export default class Login extends Component{
                
                     {/* 1.4 로그인 버튼 */}
                     <View style={{width:'100%', marginBottom:24}}>
-                        <Button title="로그인" color="#3796fe"></Button>
+                        <Button onPress={this.login} title="로그인" color="#3796fe"></Button>
                     </View>
                
                     {/* 1.5 회원가입 버튼  -Text안에 Text넣기 가능! -  navigate('name속성 이름')*/}
@@ -35,6 +36,18 @@ export default class Login extends Component{
                 </View>
             </View>
         );
+    }
+
+
+    //로그인 버튼 클릭 시 실행되는 메소드
+    login= async()=>{
+        alert('kk');
+        //AsyncStorage 에 영구 저장 (SharedPreference 같은)     //await-비동기 방식을 동기화  --> 로그인이 끝날때까지 기다렸다가 로그인이 끝나면 다음화면으로 넘어감..
+        await AsyncStorage.setItem('email', 'android@gmail.com');
+
+        //로그인이 되었으니 메인화면 MovieList 화면을 가진 DrawerNav 로 이동
+        //기존에 있는 것을 finish 시키고 넘어가려면 navigate대신에 replace를 사용
+        this.props.navigation.replace('MainDawerNav');
     }
 }
 
