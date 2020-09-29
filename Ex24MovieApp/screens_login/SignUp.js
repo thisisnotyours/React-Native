@@ -81,6 +81,25 @@ const styles= StyleSheet.create({
         alignItems:'center',
         padding:32
     },
+
+    tabContainer:{
+        flexDirection:'row',
+        marginBottom:16
+    },
+
+    telMessage:{
+        textAlign:'center',
+        fontSize:12,
+        color:'#929292',
+        marginLeft:8,
+        marginRight:8
+    },
+
+
+
+
+
+    
     footer:{
         borderTopWidth:1,
         borderTopColor:'#D3D3D3',
@@ -93,17 +112,5 @@ const styles= StyleSheet.create({
     },
     goBack:{
         color:'#3796FE'
-    },
-    tabContainer:{
-        flexDirection:'row',
-        marginBottom:16
-    },
-
-    telMessage:{
-        textAlign:'center',
-        fontSize:12,
-        color:'#929292',
-        marginLeft:8,
-        marginRight:8
     }
 });

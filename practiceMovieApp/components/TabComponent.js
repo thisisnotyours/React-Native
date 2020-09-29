@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity, Text, ImagePropTypes} from 'react-native';
-import TabComponent from '../../Ex24MovieApp/components/TabComponent';
+import {View, TouchableOpacity, Text} from 'react-native';
 
 export default TabComponent= (props)=>{
 
@@ -10,7 +9,7 @@ export default TabComponent= (props)=>{
 
     return(
         <TouchableOpacity style={containerStyle}>
-            <Text style={{color:'white'}}>{props.label}</Text>
+            <Text style={{color:color}}>{props.label}</Text>
         </TouchableOpacity>
     );
 }

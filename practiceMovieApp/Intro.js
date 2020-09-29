@@ -6,7 +6,7 @@ export default class Intro extends Component{
         return(
             <View style={styles.root}>
                 <Text style={styles.text}>Welcome to Movie App!</Text>
-                <Button onPress={()=>this.props.navigation.navigate('LoginStackNav')} color="red" title="button"></Button>
+                <Button onPress={()=>this.props.navigation.navigate('LoginStackNav')} color="red" title="Enter"></Button>
             </View>
         );
     }
