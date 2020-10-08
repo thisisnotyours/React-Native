@@ -5,8 +5,10 @@ import Home from './Screen/Home';
 import SignUp from './Screen/SignUp';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator, createBottTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Stack= createStackNavigator();
+const BottomTab= createBottomTabNavigator();
 
 export default class Main extends Component{
     render(){
@@ -23,6 +25,8 @@ export default class Main extends Component{
                     <Stack.Screen name="SIGN UP" component={SignUp}></Stack.Screen>
                 </Stack.Navigator>
             </NavigationContainer>
+
+            
         );
     }
 }
