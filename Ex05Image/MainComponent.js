@@ -25,7 +25,7 @@ export default class MainComponent extends Component{
         return(                                  
             <View style={{flex:1, justifyContent:'flex-start'}}>
 
-                <ImageBackground style={{width:'100%', height:'100%'}} source={require('./images/nasa1.jpg')}>
+                <ImageBackground style={{width:'100%', height:'100%'}} source={require('./images/sydney.jpg')}>
                     <Text style={{color:'white', alignSelf:'center'}}>Hello</Text>
                     <Text style={{color:'white'}}>This is Galaxy</Text>
 
