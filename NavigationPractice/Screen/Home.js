@@ -26,7 +26,7 @@ export default class Home extends Component{
 
 
                     <View style={{backgroundColor:'pink'}}>
-
+                        
                     </View>
                 </ScrollView>
             </View>
