@@ -56,7 +56,7 @@ class Screen extends Component{
                 
 
                 <View style={styles.adBox}>
-                    <Image source={require('../images/pefam.jpg')} style={styles.adImg} resizeMode='cover'></Image>
+                    <Image source={require('../images/pefam.jpg')} style={styles.adImg} resizeMode="contain"></Image>
                 </View>
                 
             </ScrollView>
@@ -69,7 +69,7 @@ const styles=StyleSheet.create({
     textRoot:{marginLeft:16,marginRight:16,marginTop:50},
     text1:{marginBottom:10,fontSize:20,fontWeight:'bold'},
     text2:{marginBottom:10,fontSize:20},
-    textInput:{borderWidth:1, borderRadius:4,marginBottom:10,marginTop:18},
+    textInput:{borderWidth:1, borderRadius:5,marginBottom:10,marginTop:18,backgroundColor:'white'},
 
     cardView1:{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center',height:140,margin:10,marginLeft:18,marginRight:18,backgroundColor:'white',borderRadius:8,elevation:10},
     cardView2:{flex:1,justifyContent:'center',alignItems:'center',height:100,margin:10,marginLeft:18,marginRight:10},
@@ -79,5 +79,5 @@ const styles=StyleSheet.create({
 
 
     adBox:{height:200,marginTop:30,backgroundColor:'white'},
-    adImg:{margin:25,borderRadius:10}
+    adImg:{margin:25,borderRadius:10,width:'100%',height:200}
 });

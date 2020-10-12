@@ -19,7 +19,7 @@ class Screen extends Component{
     render(){
         return(
             <View style={styles.root}>
-                <Image source={require('../images/ic_home.png')}></Image>
+                <Image source={require('../images/logo.jpeg')} style={styles.img}></Image>
                 <Text>등록된 예약이 없습니다</Text>
                 <Text>예약을 등록해주세요</Text>
             </View>
@@ -28,5 +28,6 @@ class Screen extends Component{
 }
 
 const styles=StyleSheet.create({
-    root:{flex:1,justifyContent:'center',alignItems:'center'},
+    root:{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'white'},
+    img:{width:150,height:150,marginBottom:10}
 });

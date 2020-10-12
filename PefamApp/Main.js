@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Intro from './Intro';
 import MainDrawerNav from './Navigators/MainDrawerNav';
+import LoginStackNav from './Navigators/LoginStackNav';
 
 const RootStack= createStackNavigator();
 
@@ -13,6 +14,7 @@ export default class Main extends Component{
             <NavigationContainer>
                 <RootStack.Navigator>
                     <RootStack.Screen name="Intro" component={Intro}></RootStack.Screen>
+                    <RootStack.Screen name="LoginStackNav" component={LoginStackNav}></RootStack.Screen>
                     <RootStack.Screen name="MainDrawerNav" component={MainDrawerNav}></RootStack.Screen>
                 </RootStack.Navigator>
             </NavigationContainer>
