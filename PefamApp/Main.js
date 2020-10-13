@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, HeaderTitle} from '@react-navigation/stack';
 
 import Intro from './Intro';
 import MainDrawerNav from './Navigators/MainDrawerNav';
@@ -13,9 +13,24 @@ export default class Main extends Component{
         return(
             <NavigationContainer>
                 <RootStack.Navigator>
-                    <RootStack.Screen name="Intro" component={Intro}></RootStack.Screen>
+                    <RootStack.Screen 
+                        name="Intro" 
+                        component={Intro}
+                        options={{
+                            headerShown:false
+                        }}>
+                    </RootStack.Screen>
+
+
                     <RootStack.Screen name="LoginStackNav" component={LoginStackNav}></RootStack.Screen>
-                    <RootStack.Screen name="MainDrawerNav" component={MainDrawerNav}></RootStack.Screen>
+
+
+                    <RootStack.Screen 
+                        name="MainDrawerNav" 
+                        component={MainDrawerNav}
+                        options={{
+                            headerShown:false
+                        }}></RootStack.Screen>
                 </RootStack.Navigator>
             </NavigationContainer>
         );

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View,Text,StyleSheet, Image, Alert, FlatList, TouchableOpacity, ImageComponent} from 'react-native';
+import {View,Text,StyleSheet, Image, Alert,FlatList, TouchableOpacity, ImageComponent} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack= createStackNavigator();
@@ -8,7 +8,15 @@ export default Gallery=()=>{
 
     return(
         <Stack.Navigator>
-            <Stack.Screen name="Gallery" component={Screen}></Stack.Screen>
+            <Stack.Screen 
+                name="갤러리" 
+                component={Screen}
+                options={{
+                    headerTitleAlign:'center',
+                    headerTintColor:'#00ace6',
+                    headerTitleStyle:{fontWeight:'bold'},
+                    headerStyle:{borderBottomWidth:1,borderBottomColor:'#00ace6'}
+                }}></Stack.Screen>
         </Stack.Navigator>
     );
 }
@@ -38,7 +46,7 @@ class Screen extends Component{
                     renderItem={( obj )=>{   //{item, index}- 구조분해할당
                         return(
                             <TouchableOpacity onPress={()=>{this.clickImg(item,index)}}>
-                                <Image source={obj.item} style={{width:100,height:100,margin:5,borderRadius:5}}></Image>
+                                <Image source={obj.item} style={styles.img}></Image>
                             </TouchableOpacity>
                         );
                     }}
@@ -55,4 +63,5 @@ class Screen extends Component{
 
 const styles=StyleSheet.create({
     root:{flex:1,margin:16},
+    img:{width:100,height:100,margin:5,borderRadius:5}
 });

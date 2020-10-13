@@ -6,7 +6,15 @@ const Stack= createStackNavigator();
 export default MY=()=>{
     return(
         <Stack.Navigator>
-            <Stack.Screen name="Home" component={Screen}></Stack.Screen>
+            <Stack.Screen 
+                name="MY" 
+                component={Screen}
+                options={{
+                    headerTitleAlign:'center',
+                    headerTitleStyle:{fontWeight:'bold',color:'#00ace6'},
+                    headerTintColor:'#00ace6'
+                    // headerStyle:{borderBottomWidth:1,borderBottomColor:'#00ace6'}
+                }}></Stack.Screen>
         </Stack.Navigator>
     );
 }
@@ -21,11 +29,11 @@ class Screen extends Component{
 
                 <View style={{height:20}}></View>
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('회원정보')}>
                     <Text style={styles.texts}>회원 정보</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('반려견 정보')}>
                     <Text style={styles.texts}>반려견 정보</Text>
                 </TouchableOpacity>
 
@@ -34,11 +42,11 @@ class Screen extends Component{
 
 
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('예약 내역')}>
                     <Text style={styles.texts}>예약 내역</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('나의 후기')}>
                     <Text style={styles.texts}>나의 후기</Text>
                 </TouchableOpacity>
 
@@ -47,19 +55,19 @@ class Screen extends Component{
 
                 
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('공지사항')}>
                     <Text style={styles.texts}>공지사항</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('고객센터')}>
                     <Text style={styles.texts}>고객센터</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('FAQ')}>
                     <Text style={styles.texts}>FAQ</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.touchable}>
+                <TouchableOpacity style={styles.touchable} onPress={()=>alert('환경설정')}>
                     <Text style={styles.texts}>환경설정</Text>
                 </TouchableOpacity>
 

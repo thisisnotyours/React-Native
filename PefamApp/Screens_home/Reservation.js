@@ -7,7 +7,16 @@ const Stack= createStackNavigator();
 export default Reservation=()=>{
     return(
         <Stack.Navigator>
-            <Stack.Screen name="Home" component={Screen}></Stack.Screen>
+            <Stack.Screen 
+                name="Reservation" 
+                component={Screen}
+                options={{
+                    headerTitleAlign:'center',
+                    title:'예약',
+                    headerTintColor:'#00ace6',
+                    headerTitleStyle:{fontWeight:'bold'},
+                    headerStyle:{borderBottomWidth:1,borderBottomColor:'#00ace6'}
+                    }}></Stack.Screen>
         </Stack.Navigator>
     );
 }
