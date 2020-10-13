@@ -9,7 +9,12 @@ const Stack= createStackNavigator();
 export default LoginStackNav= ()=>{
     return(
         <Stack.Navigator>
-            <Stack.Screen name="Login" component={Login}></Stack.Screen>
+            <Stack.Screen 
+                name="Login" 
+                component={Login}
+                options={{
+                    headerShown:false
+                }}></Stack.Screen>
             <Stack.Screen name="SignUp" component={SignUp}></Stack.Screen>
         </Stack.Navigator>
     );

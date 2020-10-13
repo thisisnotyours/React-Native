@@ -15,7 +15,8 @@ export default Gallery=()=>{
                     headerTitleAlign:'center',
                     headerTintColor:'#00ace6',
                     headerTitleStyle:{fontWeight:'bold'},
-                    headerStyle:{borderBottomWidth:1,borderBottomColor:'#00ace6'}
+                    headerStyle:{borderBottomWidth:1,borderBottomColor:'#00ace6'},
+                    
                 }}></Stack.Screen>
         </Stack.Navigator>
     );
@@ -38,22 +39,35 @@ class Screen extends Component{
 
 
     render(){
+
+        //강아지 혈통
+        const breedsUrl="https://dog.ceo/api/breeds/list/all";
+        const breadImgUrl="https://dog.ceo/api/breed/hound/images";
+
+
+
         return(
             <View style={styles.root}>
                 <Text style={{fontSize:20,fontWeight:'bold',marginLeft:5}}>최근 갤러리</Text>
+
+                <Image></Image>
+                <Text></Text>
+
                 <FlatList
                     data={this.state.img}
                     renderItem={( obj )=>{   //{item, index}- 구조분해할당
                         return(
-                            <TouchableOpacity onPress={()=>{this.clickImg(item,index)}}>
-                                <Image source={obj.item} style={styles.img}></Image>
+                            <TouchableOpacity>
+                                <Image source={obj.item} style={styles.img} onPress={alert(obj.index)}></Image>
                             </TouchableOpacity>
                         );
                     }}
-                    horizontal={true}>
+                    horizontal={false}>
                 </FlatList>
             </View>
         );
+
+        
     }
 
     clickImg= (item,index)=>{
@@ -63,5 +77,5 @@ class Screen extends Component{
 
 const styles=StyleSheet.create({
     root:{flex:1,margin:16},
-    img:{width:100,height:100,margin:5,borderRadius:5}
+    img:{width:'100%',height:300,margin:5}
 });

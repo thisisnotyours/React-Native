@@ -22,7 +22,12 @@ export default class Main extends Component{
                     </RootStack.Screen>
 
 
-                    <RootStack.Screen name="LoginStackNav" component={LoginStackNav}></RootStack.Screen>
+                    <RootStack.Screen 
+                        name="LoginStackNav" 
+                        component={LoginStackNav}
+                        options={{
+                            headerShown:false
+                        }}></RootStack.Screen>
 
 
                     <RootStack.Screen 

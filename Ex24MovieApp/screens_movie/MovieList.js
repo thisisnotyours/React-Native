@@ -35,7 +35,7 @@ export default class MovieList extends Component{
 
                 {/* 최신등록순 이미지 */}
                 <SmallCatalogList 
-                    // onPress={(id)는 json문서에 있는 id
+                    // onPress={(id)는 json문서에 있는 id 라는 멤버변수
                     onPress={(id)=>this.props.navigation.navigate('MovieDetail', {id:id})}    //{id:id} 뒤에있는 id는 식별자
                     title="최신등록순"
                     uri={recentUrl}>
